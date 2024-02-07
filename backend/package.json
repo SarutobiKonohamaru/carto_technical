@@ -1,0 +1,14 @@
+{
+  "name": "area_interest_backend",
+  "version": "1.0.0",
+  "description": "REST API to manage GIS analysis of areas of interests",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "keywords": [],
+  "author": "aperezac88@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
