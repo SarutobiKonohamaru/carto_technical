@@ -1,12 +1,14 @@
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const express = require('express');
 const app = express();
 
-const dispenserController = require('./interfaces/controllers/dispenserController');
+const analysisController = require('./interfaces/controllers/analysisController');
 
 app.use(express.json());
-app.use('/api', dispenserController());
+app.use('/api', analysisController());
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.SERVER_PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

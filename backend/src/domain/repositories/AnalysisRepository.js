@@ -2,9 +2,9 @@ class AnalysisRepository {
       constructor(dataSource) {
             this.dataSource = dataSource;
       }
-	/*createDispenser(dispenser) {
-            this.dataSource.createDispenser(dispenser)
-      }*/
+      addNewAnalysis(data) {
+            this.dataSource.addNewAnalysis(data)
+      }
 }
 
 module.exports = AnalysisRepository;

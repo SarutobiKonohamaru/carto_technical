@@ -34,20 +34,20 @@ CREATE EXTENSION IF NOT EXISTS postgis;
 COPY coordinates(longitude, latitude) FROM 'path/file.csv' DELIMITER ',' CSV HEADER;
 ```
 
-
-4- Create table for storing area of inetesr data based on the user input
+5- Create table for storing area of interest data based on the user input
 
 ```
 CREATE TABLE area_of_interest (
     id serial primary key,
-    area text,
+    area_of_interest text,
+    area_hash text,
     geom geometry(POLYGON, 4326)
 );
 ALTER TABLE IF EXISTS public.area_of_interest
-    ADD CONSTRAINT idx_area_unique UNIQUE (area);
+    ADD CONSTRAINT idx_area_unique UNIQUE (area_hash);
 ```
 
-5- Create table for storing analysis results
+6- Create table for storing analysis results
 
 ```
 CREATE TABLE analysis
@@ -68,9 +68,9 @@ CREATE TABLE analysis
 
 ## Backend configuration
 
-The backend server consists of a REST API implemented under NodeJS platform (v12.18.3) using Express library.
+The backend server consists of a REST API implemented under NodeJS platform (v12.18.3) using Express library.  
 
-1- Open a terminal and go to backend folder
-2- Run npm i to install project dependencies
-3- Run npm start. The server will start running on port configured in the environment variable PORT or 3000 by default
+1- Open a terminal and go to backend folder  
+2- Run npm i to install project dependencies  
+3- Run npm start. The server will start running on port configured in the environment variable PORT or 3000 by default  
 

@@ -8,6 +8,12 @@ class AnalysisUseCase {
 		this.respository = repository;
 	}
 
+	addNewAnalysis(areaOfInterest) {
+		const analysis = new Analysis(undefined, areaOfInterest);
+		this.respository.addNewAnalysis(analysis);
+		return id;
+	}
+
 }
 
 module.exports = AnalysisUseCase;
