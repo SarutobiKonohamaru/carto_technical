@@ -1,10 +1,10 @@
-const globals = require("../../globals")
 
-class Analysis {
+
+class AreaInterest {
 	constructor(id, areaOfInterest) {
             this.id = id
             this.areaOfInterest = areaOfInterest
       }
 }
 
-module.exports = Analysis;
+module.exports = AreaInterest;

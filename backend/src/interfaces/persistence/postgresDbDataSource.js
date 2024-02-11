@@ -26,7 +26,7 @@ class PostgresDbDataSource {
 			throw error;
 		}
 	}
-	async addNewAnalysis(data) {
+	async addNewAreaInterest(data) {
 		try {
 			const { areaOfInterest } = data
 			const hash = utils.createHash(areaOfInterest)
@@ -37,6 +37,17 @@ class PostgresDbDataSource {
 				`;
 			const result = await this.connection.one(query, [areaOfInterest, hash, areaOfInterest]);
 			return result.id;
+		} catch (error) {
+			throw error
+		}
+	}
+	async listResults() {
+		try {
+			const query = `
+				SELECT aoi.id, aoi.area_of_interest,
+					 r.total_points, r.centroid_stdev, r.centroid_index
+				FROM  area_of_interest aoi LEFT OUTER JOIN results ON aoi.id = r.area_interest_fk
+				`
 		} catch (error) {
 			throw error
 		}

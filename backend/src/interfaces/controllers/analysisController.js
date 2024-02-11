@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const PostgresDbDataSource = require("../persistence/postgresDbDataSource");
-const AnalysisRepository = require("../../domain/repositories/AnalysisRepository");
-const AnalysisUseCase = require("../../application/useCases/analysisUseCase");
-const analysisRepository = new AnalysisRepository(new PostgresDbDataSource());
-const analysisUseCase = new AnalysisUseCase(analysisRepository);
+const AreaInterestRepository = require("../../domain/repositories/AreaInterestRepository");
+const AreaInterestUseCase = require("../../application/useCases/areaInterestUseCase");
+const areaInterestRepository = new AreaInterestRepository(new PostgresDbDataSource());
+const areaInterestUseCase = new AreaInterestUseCase(areaInterestRepository);
 
 module.exports = () => {
-	router.post("/v1/analysis", async (req, res) => {
+	router.post("/v1/areaOfInterest", async (req, res) => {
 		try {
 			const { areaOfInterest } = req.body;
-			const id = await analysisUseCase.addNewAnalysis(areaOfInterest);
+			const id = await areaInterestUseCase.addNewAreaInterest(areaOfInterest);
 			res.status(201).json({
 				id: id
 			});
@@ -21,8 +21,8 @@ module.exports = () => {
 		}
 	});
 
-	router.get("/v1/results", (req, res) => { 
-		
+	router.get("/v1/analysis", (req, res) => { 
+
 	});
 
 	return router;
