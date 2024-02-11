@@ -82,5 +82,14 @@ DB_PASSWORD=database password
 
 2- Open a terminal and go to backend folder  
 3- Run npm i to install project dependencies  
-4- Run npm start. The server will start running on the port configured in the environment variable SERVER_PORT or 3000 by default  
-
+4- Run npm start. The server will start running on the port configured in the environment variable SERVER_PORT or 3000 by default 
+5- Endpoints: 
+- areaOfInterest (POST): Inserts a new area of interest. 
+```
+curl -X POST -H "Content-Type: application/json" -d '{"areaOfInterest":"value1"}' http://localhost:3000/api/v1/areaOfInterest
+```
+- analysis (GET): Returns the list of analysis. 
+```
+curl http://localhost:3000/api/v1/analysis
+```
+ 

@@ -41,13 +41,14 @@ class PostgresDbDataSource {
 			throw error
 		}
 	}
-	async listResults() {
+	async listAnalysis() {
 		try {
 			const query = `
 				SELECT aoi.id, aoi.area_of_interest,
 					 r.total_points, r.centroid_stdev, r.centroid_index
-				FROM  area_of_interest aoi LEFT OUTER JOIN results ON aoi.id = r.area_interest_fk
+				FROM  area_of_interest aoi LEFT OUTER JOIN analysis r ON aoi.id = r.area_interest_fk
 				`
+			return await this.connection.any(query, []);
 		} catch (error) {
 			throw error
 		}
