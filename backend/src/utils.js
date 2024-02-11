@@ -1,7 +1,9 @@
+const CryptoJS = require('crypto-js');
+
 module.exports = {
-      calculateTotalSpent(options) {
-            const { openedAt, closedAt, flowVolume } = options
-            const secondsOpened = (new Date(closedAt) - new Date(openedAt)) / 1000
-            return secondsOpened * 12.25 * flowVolume
+      createHash(input){
+            const hash = CryptoJS.SHA256(input);
+            const hashHex = hash.toString(CryptoJS.enc.Hex);
+            return hashHex
       }
 }

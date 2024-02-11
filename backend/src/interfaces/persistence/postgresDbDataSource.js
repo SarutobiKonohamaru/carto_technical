@@ -1,3 +1,5 @@
+const utils = require("../../utils")
+
 class PostgresDbDataSource {
 	constructor() {
 		this.connection = null;
@@ -24,8 +26,20 @@ class PostgresDbDataSource {
 			throw error;
 		}
 	}
-	addNewAnalysis(data) {
-		
+	async addNewAnalysis(data) {
+		try {
+			const { areaOfInterest } = data
+			const hash = utils.createHash(areaOfInterest)
+			const query = `
+				INSERT INTO area_of_interest (area_of_interest, area_hash, geom)
+				VALUES ($1, $2, ST_GeomFromText($3, 4326))
+				RETURNING id
+				`;
+			const result = await this.connection.one(query, [areaOfInterest, hash, areaOfInterest]);
+			return result.id;
+		} catch (error) {
+			throw error
+		}
 	}
 }
 

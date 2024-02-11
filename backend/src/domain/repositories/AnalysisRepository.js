@@ -2,8 +2,8 @@ class AnalysisRepository {
       constructor(dataSource) {
             this.dataSource = dataSource;
       }
-      addNewAnalysis(data) {
-            this.dataSource.addNewAnalysis(data)
+      async addNewAnalysis(data) {
+            return await this.dataSource.addNewAnalysis(data)
       }
 }
 

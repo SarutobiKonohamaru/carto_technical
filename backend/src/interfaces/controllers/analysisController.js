@@ -7,10 +7,10 @@ const analysisRepository = new AnalysisRepository(new PostgresDbDataSource());
 const analysisUseCase = new AnalysisUseCase(analysisRepository);
 
 module.exports = () => {
-	router.post("/v1/analysis", (req, res) => {
+	router.post("/v1/analysis", async (req, res) => {
 		try {
 			const { areaOfInterest } = req.body;
-			const id = analysisUseCase.addNewAnalysis(areaOfInterest);
+			const id = await analysisUseCase.addNewAnalysis(areaOfInterest);
 			res.status(201).json({
 				id: id
 			});
@@ -20,6 +20,10 @@ module.exports = () => {
 			});
 		}
 	});
-	router.get("/v1/results", (req, res) => { });
+
+	router.get("/v1/results", (req, res) => { 
+		
+	});
+
 	return router;
 };

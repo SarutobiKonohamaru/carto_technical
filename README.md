@@ -70,7 +70,17 @@ CREATE TABLE analysis
 
 The backend server consists of a REST API implemented under NodeJS platform (v12.18.3) using Express library.  
 
-1- Open a terminal and go to backend folder  
-2- Run npm i to install project dependencies  
-3- Run npm start. The server will start running on port configured in the environment variable PORT or 3000 by default  
+1-Configure the following environment variables: 
+```
+SERVER_PORT=port where backend server will be running
+DB_HOST=database host
+DB_PORT=database port
+DB=database name
+DB_USER=database user
+DB_PASSWORD=database password
+```
+
+2- Open a terminal and go to backend folder  
+3- Run npm i to install project dependencies  
+4- Run npm start. The server will start running on the port configured in the environment variable SERVER_PORT or 3000 by default  
 

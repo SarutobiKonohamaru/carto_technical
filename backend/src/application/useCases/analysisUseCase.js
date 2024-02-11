@@ -8,10 +8,9 @@ class AnalysisUseCase {
 		this.respository = repository;
 	}
 
-	addNewAnalysis(areaOfInterest) {
+	async addNewAnalysis(areaOfInterest) {
 		const analysis = new Analysis(undefined, areaOfInterest);
-		this.respository.addNewAnalysis(analysis);
-		return id;
+		return await this.respository.addNewAnalysis(analysis);
 	}
 
 }
