@@ -1,0 +1,15 @@
+{
+  "name": "cron",
+  "version": "1.0.0",
+  "description": "Cron for running background data intensive tasks",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "author": "aperezac88@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^1.8.2",
+    "dotenv": "^8.2.0",
+    "pg-promise": "^8.4.0"
+  }
+}

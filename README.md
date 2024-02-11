@@ -82,7 +82,7 @@ DB_PASSWORD=database password
 
 2- Open a terminal and go to backend folder  
 3- Run npm i to install project dependencies  
-4- Run npm start. The server will start running on the port configured in the environment variable SERVER_PORT or 3000 by default 
+4- Run npm start. The server will start running on the port configured in the environment variable SERVER_PORT or 3000 by default    
 5- Endpoints: 
 - areaOfInterest (POST): Inserts a new area of interest. 
 ```
@@ -93,3 +93,14 @@ curl -X POST -H "Content-Type: application/json" -d '{"areaOfInterest":"value1"}
 curl http://localhost:3000/api/v1/analysis
 ```
  
+### Cron configuration
+This component is a backend service that executes data intensive tasks. For this use case, a cron task will be running every 5 seconds. This task will execute the necessary queries for getting the results (total points, centroid stdev and centroid index) out of entries in area_of_interest table.  
+
+1-Configure the following environment variables: 
+```
+DB_HOST=database host
+DB_PORT=database port
+DB=database name
+DB_USER=database user
+DB_PASSWORD=database password
+```
