@@ -6,10 +6,11 @@ class AreaInterestUseCase {
 	}
 
 	async addNewAreaInterest(areaOfInterest) {
-		const analysis = new AreaInterest(undefined, areaOfInterest);
-		return await this.respository.addNewAreaInterest(analysis);
+		const areaInterest = new AreaInterest(undefined, areaOfInterest);
+		const insertedId = await this.respository.addNewAreaInterest(areaInterest);
+		areaInterest.id = insertedId
+		return areaInterest
 	}
-
 }
 
 module.exports = AreaInterestUseCase;

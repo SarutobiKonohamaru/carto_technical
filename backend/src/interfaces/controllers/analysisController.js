@@ -10,9 +10,10 @@ module.exports = () => {
 	router.post("/v1/areaOfInterest", async (req, res) => {
 		try {
 			const { areaOfInterest } = req.body;
-			const id = await areaInterestUseCase.addNewAreaInterest(areaOfInterest);
+			const result = await areaInterestUseCase.addNewAreaInterest(areaOfInterest);
 			res.status(201).json({
-				id: id
+				id: result.id,
+				areaOfInterest: result.areaOfInterest
 			});
 		} catch (error) {
 			res.status(500).json({
