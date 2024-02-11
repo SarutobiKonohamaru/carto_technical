@@ -1,0 +1,10 @@
+{
+      "jobs": [
+          {
+              "name": "Get analysis data",
+              "description": "This job gets analysis data out of area of interest",
+              "cron":  "*/1 * * * *"
+          }
+      ]
+  
+  }
